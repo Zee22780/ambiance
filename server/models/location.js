@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-// const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const addressSchema = new Schema({
@@ -19,7 +18,7 @@ const addressSchema = new Schema({
     type: String,
     required: false
   }
-})
+}, { _id: false})
 
 const amenitiesSchema = new Schema({
   laptop: {
@@ -47,14 +46,15 @@ const amenitiesSchema = new Schema({
     default: ''
   },
   price: {
-    type: Number,
-    default: 0
+    type: String,
+    enum: ["$", "$$", "$$$"],
+    default: ''
   },
   food: {
     type: String,
     default: ''
   }
-})
+}, { _id: false})
 
 const locationSchema = new Schema({
   name: {
