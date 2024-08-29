@@ -1,15 +1,74 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
+// const mongoose = require('mongoose')
+const { Schema } = mongoose
 
-const locationSchema = new mongoose.Schema({
+const addressSchema = new Schema({
+  country: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  streetAddress: {
+    type: String,
+    required: true
+  },
+  neighborhood: {
+    type: String,
+    required: false
+  }
+})
+
+const amenitiesSchema = new Schema({
+  laptop: {
+    type: Boolean,
+    default: false
+  },
+  outlets: {
+    type: Boolean,
+    default: false
+  },
+  freeWiFi: {
+    type: Boolean,
+    default: false
+  },
+  tableSize: {
+    type: String,
+    default: ''
+  },
+  decor: {
+    type: String,
+    default: ''
+  },
+  music: {
+    type: String,
+    default: ''
+  },
+  price: {
+    type: Number,
+    default: 0
+  },
+  food: {
+    type: String,
+    default: ''
+  }
+})
+
+const locationSchema = new Schema({
   name: {
     type: String,
     required: true
   },
   address: {
-    type: String,
+    type: addressSchema,
     required: true
   },
-  amenities: [String],
+  amenities: {
+    type: amenitiesSchema,
+    required: true
+  },
   rating: {
     type: Number,
     min: 0,
@@ -19,4 +78,6 @@ const locationSchema = new mongoose.Schema({
 
 const Location = mongoose.model('Location', locationSchema)
 
-module.exports = Location
+export {
+  Location
+} 
