@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
 
 const LocationForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -58,6 +59,8 @@ const LocationForm = ({ onSubmit }) => {
   };
 
   return (
+    <>
+    <Navbar />
     <form onSubmit={handleSubmit}>
       <h2>Add New Location</h2>
       
@@ -131,6 +134,7 @@ const LocationForm = ({ onSubmit }) => {
 
       <button type="submit">Submit</button>
     </form>
+    </>
   );
 };
 
