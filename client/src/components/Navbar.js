@@ -39,7 +39,9 @@ function Navbar() {
 
   const handleClick = (page) => {
     if (page === 'Add New Location') {
-      navigate('/add-location')
+      navigate('/Add-Location')
+    }else if(page === 'Explore Locations'){
+      navigate('/')
     }
   }
 

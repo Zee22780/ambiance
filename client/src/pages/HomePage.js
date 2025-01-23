@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../components/Navbar.js'
+import PageLayout from '../components/PageLayout';
 
 const HomePage = () => {
   return (
     <div >
-      <Navbar />
+      <PageLayout />
       <h1>All Locations</h1>
     </div>
   );

@@ -59,7 +59,7 @@ const LocationForm = ({ onSubmit }) => {
 
   return (
     <>
-      <div style={{ margin: "auto", width: "50%" }}>
+      <div style={{ margin: "auto", width: "50%"}}>
         <h2>Add A Location</h2>
         <form style={{ display: "flex", flexDirection: "column" }}>
           <input
@@ -186,7 +186,7 @@ const LocationForm = ({ onSubmit }) => {
               required
             />
           </label>
-          <button type="submit">Add</button>
+          <button type="submit" style={{width: '10%', alignSelf: 'center'}}>Add</button>
         </form>
       </div>
     </>
