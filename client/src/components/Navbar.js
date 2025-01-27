@@ -39,7 +39,7 @@ function Navbar() {
 
   const handleClick = (page) => {
     if (page === 'Add New Location') {
-      navigate('/Add-Location')
+      navigate('/add-location')
     }else if(page === 'Explore Locations'){
       navigate('/')
     }
@@ -96,7 +96,7 @@ function Navbar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleClick}>
+                <MenuItem key={page} onClick={() => handleClick(page)}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -126,7 +126,7 @@ function Navbar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleClick}
+                onClick={() => handleClick(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
