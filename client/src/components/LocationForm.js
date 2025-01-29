@@ -54,14 +54,17 @@ const LocationForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData); // You can pass this data to a backend API or other handler
+    onSubmit(formData); 
   };
 
   return (
     <>
       <div style={{ margin: "auto", width: "50%"}}>
         <h2>Add A Location</h2>
-        <form style={{ display: "flex", flexDirection: "column" }}>
+        <form 
+          style={{ display: "flex", flexDirection: "column" }}
+          onSubmit={handleSubmit}
+          >
           <input
             type="text"
             name="name"
