@@ -54,7 +54,20 @@ const LocationForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData); 
+    fetch('http://localhost:3001/api/locations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('form data submitted', data)
+    })
+    .catch(error => {
+      console.error('There was an error submitting the form', error)
+    })
   };
 
   return (
