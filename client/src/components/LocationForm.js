@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const LocationForm = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     address: {
       country: "",
@@ -20,7 +20,9 @@ const LocationForm = ({ onSubmit }) => {
       food: false,
     },
     rating: 0,
-  });
+  }
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -64,7 +66,10 @@ const LocationForm = ({ onSubmit }) => {
     .then(response => response.json())
     .then(data => {
       console.log('form data submitted', data)
+      // Reset form
+      setFormData(initialFormData)
     })
+    
     .catch(error => {
       console.error('There was an error submitting the form', error)
     })
