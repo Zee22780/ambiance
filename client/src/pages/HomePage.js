@@ -18,7 +18,7 @@ const HomePage = () => {
     <div style={{margin: '10px'}}>
       <PageLayout />
       <h1>All Locations</h1>
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
         {locations.map(location => (
           <LocationCard key={location._id} location={location}/>
         ))}

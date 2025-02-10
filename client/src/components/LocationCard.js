@@ -7,7 +7,7 @@ const LocationCard = (location) => {
 
   return (
     <div style={{marginRight: '15px'}}>
-      <Card sx={{ width: 275, border: 'solid 1pt'}}>
+      <Card sx={{ width: 275, height: 300}}>
         <CardContent>
           <Typography variant='h5'>
            {location.location.name}
@@ -19,9 +19,16 @@ const LocationCard = (location) => {
             City: {location.location.address.city}
           </Typography>
           <Typography>
+            Neighborhood: {location.location.address.neighborhood}
+          </Typography>
+          <Typography>
             Address: {location.location.address.streetAddress}
           </Typography>
+          <Typography>
+            Overall Rating: {location.location.rating}
+          </Typography>
         </CardContent>
+        <button style={{marginBottom: '15px'}}>More Details</button>
       </Card>
     </div>
   )
