@@ -2,13 +2,14 @@ import { Location } from '../models/location.js'
 
 // Create a location
 const createLocation = async (req, res) => {
-  const { name, address, amenities, rating } = req.body;
+  const { name, address, amenities, rating, images } = req.body;
   try {
     const newLocation = new Location({
       name,
       address,
       amenities,
-      rating
+      rating,
+      images
     });
     await newLocation.save();
     res.status(201).json(newLocation);

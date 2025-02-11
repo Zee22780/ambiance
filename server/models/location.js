@@ -73,6 +73,10 @@ const locationSchema = new Schema({
     type: Number,
     min: 0,
     max: 5
+  }, 
+  images: {
+    type: [String],
+    default: []
   }
 })
 
