@@ -20,6 +20,7 @@ const LocationForm = ({ onSubmit }) => {
       food: false,
     },
     rating: 0,
+    images: []
   }
 
   const [formData, setFormData] = useState(initialFormData);
@@ -53,6 +54,15 @@ const LocationForm = ({ onSubmit }) => {
       },
     }));
   };
+
+  const handleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    const imageUrls = files.map(file => URL.createObjectURL(file));
+    setFormData((prevState) => ({
+      ...prevState,
+      images: imageUrls
+    }))
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -205,6 +215,16 @@ const LocationForm = ({ onSubmit }) => {
               max="5"
               step="0.1"
               required
+            />
+          </label>
+
+          <label>
+            Images: 
+            <input 
+              type="file"
+              name="images"
+              multiple
+              onChange={handleImagesChange}
             />
           </label>
           <button type="submit" style={{width: '10%', alignSelf: 'center'}}>Add</button>
